@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercado do Continente — The Witcher RPG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="main-header">
+    <div class="header-content">
+      <div class="brand">
+        <span class="wolf-icon">🐺</span>
+        <div>
+          <h1>EMPÓRIO DE RODOLF KAZMER</h1>
+          <p class="subtitle">Guia de Equipamentos, Armas, Armaduras e Serviços — The Witcher RPG</p>
+        </div>
+      </div>
+
+      <!-- RESUMO DA BOLSA / CARRINHO -->
+      <div class="cart-summary" id="btnToggleCart">
+        <div class="cart-stat">
+          <span class="label">Peso Total</span>
+          <strong id="totalWeight">0,0 kg</strong>
+        </div>
+        <div class="cart-stat">
+          <span class="label">Custo Total</span>
+          <strong class="gold-text" id="totalCost">0 Coroas</strong>
+        </div>
+        <button class="btn-cart">🎒 Lista (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO DE CATEGORIAS -->
+    <nav class="category-nav" id="categoryNav"></nav>
+  </header>
+
+  <!-- BARRA DE FILTROS E PESQUISA -->
+  <section class="controls-bar">
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="🔍 Procurar por nome, efeito, dano ou descrição...">
+    </div>
+    <div class="filters-wrapper">
+      <select id="subcatFilter">
+        <option value="ALL">Todas as Subcategorias</option>
+      </select>
+      <select id="dispFilter">
+        <option value="ALL">Qualquer Disponibilidade</option>
+        <option value="F">Fácil (F) - Vilarejos</option>
+        <option value="C">Comum (C) - Cidades</option>
+        <option value="I">Incomum (I) - Regional/Militar</option>
+        <option value="R">Rara (R) - Especial</option>
+      </select>
+      <select id="sortSelect">
+        <option value="default">Ordenar: Padrão</option>
+        <option value="price-asc">Preço: Menor para Maior</option>
+        <option value="price-desc">Preço: Maior para Menor</option>
+        <option value="weight-asc">Peso: Mais Leve</option>
+        <option value="weight-desc">Peso: Mais Pesado</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="main-container">
+    <div class="section-banner" id="sectionBanner"></div>
+    <div class="table-responsive">
+      <table class="witcher-table" id="itemsTable">
+        <thead id="tableHead"></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- PAINEL LATERAL: INVENTÁRIO / COMPARADOR E CÂMBIO -->
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h2>🎒 Bolsa de Compras & Câmbio</h2>
+      <button class="btn-close" id="btnCloseCart">&times;</button>
+    </div>
+
+    <div class="currency-converter">
+      <h3>Conversão de Moedas do Continente</h3>
+      <div class="currency-grid" id="currencyGrid"></div>
+      <p class="sell-note">💡 <strong>Venda no mercado:</strong> 50% do valor base (<span id="sellBase">0</span> Coroas). Pode subir até 200% com teste de <em>Negócios</em>.</p>
+    </div>
+
+    <div class="cart-items" id="cartItemsList"></div>
+
+    <div class="drawer-footer">
+      <button class="btn-clear" id="btnClearCart">Limpar Lista</button>
+    </div>
+  </aside>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
